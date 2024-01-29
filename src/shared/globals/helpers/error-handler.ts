@@ -13,6 +13,7 @@ export interface IError {
 export abstract class CustomError extends Error {
   abstract statusCode: number;
   abstract status: string;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   constructor(message: string) {
     super();
   }

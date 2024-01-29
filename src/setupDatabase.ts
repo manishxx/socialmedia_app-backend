@@ -1,6 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import mongoose, { Mongoose } from 'mongoose';
-import { config } from './config';
+import { config } from '@root/config';
 import Logger from 'bunyan';
+import { redisConnection } from '@service/redis/redis.connection';
 const log: Logger = config.createLogger('setUpDatabase');
 export default () => {
   const connect = () => {
@@ -9,6 +11,7 @@ export default () => {
 
       .then(() => {
         log.info('Successfully connected to database');
+        redisConnection.connect();
       })
       .catch((error) => {
         log.error('Error in Database', error);

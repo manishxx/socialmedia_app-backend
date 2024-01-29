@@ -1,4 +1,4 @@
-import { json, urlencoded, Response, Request, NextFunction, Application, request } from 'express';
+import { json, urlencoded, Response, Request, NextFunction, Application } from 'express';
 
 import http from 'http';
 import cors from 'cors';
@@ -8,14 +8,15 @@ import cookieServer from 'cookie-session';
 import HTTP_STATUS from 'http-status-codes';
 import 'express-async-errors';
 import compression from 'compression';
-import { config } from './config';
+
 import { Server } from 'socket.io';
 import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
-import applicationRoutes from './routes';
+import applicationRoutes from '@root/routes';
 import Logger from 'bunyan';
 
-import { CustomError, IErrorResponse } from './shared/globals/helpers/error-handler';
+import { config } from '@root/config';
+import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
 require('./setupDatabase');
 
 const SERVER_PORT = 5000;
@@ -107,5 +108,8 @@ export class ChattyServer {
       log.info(`server running on port ${SERVER_PORT}`);
     });
   }
-  private socketIOConnections(io: Server): void {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private socketIOConnections(io: Server): void {
+    log.info('socketIOConnections');
+  }
 }
