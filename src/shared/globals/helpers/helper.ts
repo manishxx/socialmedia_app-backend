@@ -1,5 +1,5 @@
 export class Helpers {
-  static firstLetterUppercase(str: string): string {
+  static firstLetterUppercase(str: string): any {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   static lowerCase(str: string): string {
