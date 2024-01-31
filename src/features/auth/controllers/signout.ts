@@ -2,8 +2,7 @@ import HTTP_STATUS from 'http-status-codes';
 import { Request, Response } from 'express';
 import Logger from 'bunyan';
 import { config } from '@root/config';
-import { IAuthDocument } from '@auth/interfaces/auth.interface';
-import { authService } from '@service/db/auth.service';
+
 const log: Logger = config.createLogger('Sign In');
 
 export class SignOut {

@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import Mail from 'nodemailer/lib/mailer';
+
 import Logger from 'bunyan';
 import sendGridMail from '@sendgrid/mail';
 import { config } from '@root/config';
@@ -51,19 +51,19 @@ class MailTransport {
     }
   }
   private async productionEmailSender(recieverEmail: string, subject: string, body: string): Promise<void> {
-    const mailOptions: IMailOptions = {
-      from: `Chatty App <${config.SENDER_EMAIL}>`,
-      to: recieverEmail,
-      subject,
-      html: body
-    };
-    try {
-      await sendGridMail.send;
-      log.info('Production Email Send Successfully');
-    } catch (error) {
-      log.error('Error sending Mail ', error);
-      throw new BadRequestError('Could Not Send Mail');
-    }
+    // const mailOptions: IMailOptions = {
+    //   from: `Chatty App <${config.SENDER_EMAIL}>`,
+    //   to: recieverEmail,
+    //   subject,
+    //   html: body
+    // };
+    // try {
+    //   await sendGridMail.send;
+    //   log.info('Production Email Send Successfully');
+    // } catch (error) {
+    //   log.error('Error sending Mail ', error);
+    //   throw new BadRequestError('Could Not Send Mail');
+    // }
   }
 }
 export const mailTransport: MailTransport = new MailTransport();

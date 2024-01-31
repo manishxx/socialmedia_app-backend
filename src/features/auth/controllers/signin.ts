@@ -7,9 +7,7 @@ import { authService } from '@service/db/auth.service';
 import { BadRequestError } from '@global/helpers/error-handler';
 import { loginSchema } from '@auth/schemes/signin';
 import { IAuthDocument } from '@auth/interfaces/auth.interface';
-import { mailTransport } from '@service/emails/mail-transport';
-import { forgotPasswordTemplate } from '@service/emails/templates/forgot-password/forgot-password-template';
-import { emailQueue } from '@service/queues/email.queue';
+
 import Logger from 'bunyan';
 const log: Logger = config.createLogger('Sign In');
 export class SignIn {

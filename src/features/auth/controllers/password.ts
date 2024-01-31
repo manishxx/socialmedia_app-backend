@@ -7,7 +7,7 @@ import HTTP_STATUS from 'http-status-codes';
 import { joiValidation } from '@global/decorators/joi-validation-decorators';
 import { emailSchema, passwordSchema } from '@auth/schemes/password';
 import crypto from 'crypto';
-import { random } from 'lodash';
+
 import { forgotPasswordTemplate } from '@service/emails/templates/forgot-password/forgot-password-template';
 import { emailQueue } from '@service/queues/email.queue';
 import { IResetPasswordParams } from '@user/interfaces/user.interface';
